@@ -1,229 +1,250 @@
-*,
-*::before,
-*::after {
-    box-sizing:border-box;
-    margin:0;
-    padding:0
+/* --- CSS Reset --- */
+*, 
+*::before, 
+*::after { 
+    box-sizing: border-box; /* Memasukkan padding dan border ke dalam hitungan total lebar elemen */
+    margin: 0;              /* Menghapus margin bawaan browser */
+    padding: 0              /* Menghapus padding bawaan browser */
 }
 
+/* --- Global Variables --- */
 :root {
-
-  --red:#E4001B;
-
-  --black:#111;
-
-  --gray:#767676;
-
-  --light:#f5f5f5;
-
-  --border:#e8e8e8;
-
-  --white:#fff;
-
-  --font:'Source Serif 4', Georgia, serif;
-
-  --logo:'Bebas Neue', sans-serif;
+  --red: #E4001B;       /* Warna identitas Von Dutch */
+  --black: #111;        /* Warna teks dan elemen gelap */
+  --gray: #767676;      /* Warna teks sekunder (abu-abu) */
+  --light: #f5f5f5;     /* Warna latar belakang terang */
+  --border: #e8e8e8;    /* Warna garis pembatas */
+  --white: #fff;        /* Putih bersih */
+  --font: 'Source Serif 4', Georgia, serif; /* Font utama konten */
+  --logo: 'Bebas Neue', sans-serif;         /* Font khusus logo/judul */
 }
 
 html {
-    scroll-behavior:smooth
+    scroll-behavior: smooth /* Efek meluncur halus saat berpindah section/halaman */
 }
 
 body {
-    font-family:var(--font);
-    background:#fff;
-    color:var(--black);
-    font-size:15.5px;
-    font-weight:400;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden
+    font-family: var(--font);
+    background: #fff;
+    color: var(--black);
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.6;         /* Jarak antar baris teks agar enak dibaca */
+    -webkit-font-smoothing: antialiased; /* Membuat font terlihat lebih halus di macOS/iOS */
+    overflow-x: hidden       /* Mencegah scroll horizontal yang tidak diinginkan */
 }
 
-a {
-    text-decoration:none;
-    color:inherit
+a { 
+    text-decoration: none;   /* Menghapus garis bawah pada link */
+    color: inherit           /* Mengikuti warna teks induknya */
 }
 
-button {
-    cursor:pointer;
-    font-family:var(--font)
+button { 
+    cursor: pointer;         /* Mengubah kursor jadi tangan saat menunjuk tombol */
+    font-family: var(--font)
 }
 
 img {
-    display:block;
-    max-width:100%
+    display: block;          /* Menghilangkan celah kosong di bawah gambar */
+    max-width: 100%          /* Gambar tidak akan melebihi lebar kontainernya */
 }
 
-ul {
-    list-style:none
+ul { 
+    list-style: none         /* Menghapus tanda bullet pada daftar (li) */
 }
 
-/* ── PAGES ── */
+/* --- SPA Logic --- */
 .page {
-    display:none
+    display: none            /* Sembunyikan semua halaman secara default */
 }
 
 .page.active {
-    display:block
+    display: block           /* Hanya tampilkan halaman yang memiliki class 'active' */
 }
 
-
-/* ── HEADER ── */
+/* --- Header & Navigation --- */
 .site-header {
-    background:#fff;
-    border-bottom:1px solid var(--border);
-    position:sticky;
-    top:0;
-    z-index:100
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;        /* Menempel di atas saat di-scroll */
+    top: 0;
+    z-index: 100             /* Memastikan header selalu di atas konten lain */
 }
 
-.header-inner {
-    max-width:1280px;
-    margin:0 auto;
-    padding:0 24px;
-    height:83px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px
+.header-inner { 
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 83px;
+    display: flex;           /* Mengaktifkan flexbox */
+    align-items: center;     /* Elemen di dalam header rata tengah secara vertikal */
+    justify-content: space-between; /* Logo di kiri, nav di tengah, tombol di kanan */
+    gap: 16px
 }
 
 .header-logo {
-    height: 45px;
-    cursor:pointer;
+    height: 45px;            /* Ukuran tetap untuk logo */
+    cursor: pointer;
 }
 
-.header-nav {
-    display:flex;
-    gap:28px;
-    align-items:center
+.header-nav { 
+    display: flex;
+    gap: 28px;
+    align-items: center
 }
 
 .header-nav a {
-    font-size:13px;
-    font-weight:500;
-    letter-spacing:.04em;
-    color:var(--black);
-    opacity:.7;
-    transition:opacity .2s;
-    white-space:nowrap
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: var(--black);
+    opacity: .7;             /* Membuat teks sedikit pudar saat tidak aktif */
+    transition: opacity .2s;
+    white-space: nowrap      /* Mencegah teks menu turun ke bawah jika sempit */
 }
 
 .header-nav a:hover, .header-nav a.active {
-    opacity:1
+    opacity: 1               /* Teks terlihat jelas saat kursor di atasnya */
 }
 
-.header-nav a.nav-sale {
-    color:var(--red);
-    opacity:1;
-    font-weight:600
+.header-nav a.nav-sale { 
+    color: var(--red);
+    opacity: 1;
+    font-weight: 600         /* Menonjolkan menu Sale dengan warna merah */
 }
 
 .header-right {
-    display:flex;
-    align-items:center;
-    gap:16px;
-    flex-shrink:0
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0           /* Mencegah bagian kanan header mengecil */
 }
 
-.icon-btn {
-    background:none;
-    border:none;
-    color:var(--black);
-    padding:4px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    opacity:.8;
-    transition:opacity .2s
-}
-
-.btn-login {
+.btn-login { 
     background: #fff;
     color: var(--black);
     border: 1px solid var(--border);
-    padding: 8px 24px;
+    padding: 8px 24px;       /* Ruang di dalam tombol */
     font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .08em;
+    font-weight: 700;        /* Teks tebal */
+    letter-spacing: .08em;   /* Jarak antar huruf */
     text-transform: uppercase;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Bayangan halus di bawah tombol */
     border-radius: 2px;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease; /* Transisi halus untuk semua perubahan property */
     margin-right: 4px;
 }
 
 .btn-login:hover {
     background: var(--light);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Bayangan lebih kuat saat di-hover */
+    transform: translateY(-1px);          /* Efek tombol terangkat sedikit */
 }
 
-.icon-btn:hover {
-    opacity:1
-}
-
-.cart-count {
-    position:absolute;
-    top:-4px;
-    right:-6px;
-    background:var(--red);
-    color:#fff;
-    font-size:9px;
-    font-weight:700;
-    width:16px;
-    height:16px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    line-height:1
-}
-
-.hamburger {
-    flex-direction:column;
-    gap:4px;
-    background:none;
-    border:none;
-    padding:4px
-}
-
-.hamburger span {
-    display:block;
-    width:20px;
-    height:1.5px;
-    background:var(--black);
-    transition:.3s
-}
-
-/* ── MOBILE MENU ── */
+/* --- Mobile Menu Styles --- */
 .mobile-menu {
-    display:none;
-    flex-direction:column;
-    background:#fff;
-    border-top:1px solid var(--border);
-    padding:16px 24px;
-    gap:2px
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 16px 24px;
+    gap: 2px
 }
 
 .mobile-menu.open {
-    display:flex
+    display: flex            /* Tampil hanya saat ada class 'open' (via JavaScript) */
 }
 
 .mobile-menu a {
-    font-size:14px;
-    font-weight:500;
-    padding:10px 0;
-    border-bottom:1px solid var(--border);
-    color:var(--black)
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--black)
 }
 
-.mobile-menu a.nav-sale {
-    color:var(--red)
+/* --- Hero Slider Styles --- */
+.hero {
+    position: relative;
+    overflow: hidden;        /* Mencegah gambar slider meluap keluar */
+    background: var(--light);
+    cursor: pointer;
 }
 
-/* ── BREADCRUMB ── */
+.hero-slide img {
+    width: 100%;
+    height: 700px;           /* Tinggi tetap untuk banner utama */
+    object-fit: cover;       /* Gambar akan dipotong secara proporsional agar memenuhi area */
+    display: block
+}
+
+.hero-slide .hero-text { 
+    position: absolute;      /* Menaruh teks di atas gambar */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 48px;
+    /* Membuat bayangan gelap di bawah teks agar teks putih mudah dibaca di atas gambar apa pun */
+    background: linear-gradient(to top, rgba(0, 0, 0, .55) 0%, transparent 100%)
+}
+
+/* --- Product Card Component --- */
+.pcard-img { 
+    position: relative;
+    background: var(--light);
+    aspect-ratio: 1/1;       /* Cara modern membuat elemen kotak sempurna (Square) */
+    overflow: hidden;        /* Memotong gambar jika di-zoom */
+    margin-bottom: 10px
+}
+
+.pcard-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease /* Animasi zoom halus selama 0.5 detik */
+}
+
+.pcard:hover .pcard-img img {
+    transform: scale(1.04)   /* Efek memperbesar gambar saat kursor di atas kartu produk */
+}
+
+/* --- Auth Modal (Login/Register) --- */
+.auth-overlay {
+    position: fixed;         /* Menutup seluruh layar */
+    inset: 0;                /* top, right, bottom, left = 0 */
+    background: rgba(0,0,0,0.6); /* Latar belakang hitam transparan */
+    z-index: 2000;
+    display: none;
+    align-items: center;     /* Modal rata tengah secara vertikal */
+    justify-content: center; /* Modal rata tengah secara horizontal */
+    padding: 20px;
+    backdrop-filter: blur(3px); /* Memberikan efek blur pada konten di belakang modal */
+}
+
+.auth-modal { 
+    background: #fff;
+    width: 100%;
+    max-width: 420px;        /* Batas lebar modal */
+    padding: 40px 32px;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* --- Responsiveness (Media Queries) --- */
+@media(max-width: 768px) { 
+    /* Perubahan tampilan untuk layar Tablet ke bawah */
+    .hero-slide img { height: 700px }
+    .hero-text h2 { font-size: 32px } /* Judul mengecil di layar kecil */
+}
+
+@media(max-width: 540px) {
+    /* Perubahan tampilan untuk layar HP kecil */
+    .info-grid { grid-template-columns: 1fr } /* Grid statistik berubah jadi 1 kolom saja */
+}
 .breadcrumb {
     max-width:1280px;
     margin:0 auto;
@@ -253,7 +274,7 @@ ul {
     font-weight:500
 }
 
-/* ── SECTION ── */
+/* Pengaturan standar jarak antar bagian (section) di website */
 .section {
     max-width:1280px;
     margin:0 auto;
@@ -273,7 +294,7 @@ ul {
     letter-spacing:.04em
 }
 
-.see-all {
+.see-all { /* Teks "Lihat Semua" berwarna merah */
     font-size:12px;
     font-weight:600;
     color:var(--red);
@@ -289,7 +310,7 @@ ul {
     text-decoration:underline
 }
 
-/* ── HERO SLIDER ── */
+/* Gaya Banner Bergeser (Hero Slider) di Home */
 .hero {
     position:relative;
     overflow:hidden;
@@ -318,7 +339,7 @@ ul {
     display:block
 }
 
-.hero-slide .hero-text {
+.hero-slide .hero-text { /* Gradien hitam di bawah gambar agar teks putih terbaca */
     position:absolute;
     bottom:0;
     left:0;
@@ -344,7 +365,7 @@ ul {
     letter-spacing:.03em
 }
 
-.btn-white {
+.btn-white { /* Tombol putih di banner slider */
     display:inline-block;
     background:#fff;
     color:var(--black);
@@ -363,7 +384,7 @@ ul {
     color:#fff
 }
 
-.hero-dots {
+.hero-dots { /* Titik navigasi kecil di pojok kanan bawah slider */
     position:absolute;
     bottom:16px;
     right:20px;
@@ -389,7 +410,7 @@ ul {
     border-radius:3px
 }
 
-/* ── CATEGORY ROW ── */
+/* Barisan filter kategori yang bisa di-scroll horizontal di HP (seperti Instagram stories) */
 .cat-row {
     display:flex;
     gap:12px;
@@ -402,7 +423,7 @@ ul {
     display:none
 }
 
-.cat-chip {
+.cat-chip { /* Tombol kategori berbentuk oval/kotak tumpul */
     flex-shrink:0;
     background:var(--light);
     border:1px solid var(--border);
@@ -423,7 +444,7 @@ ul {
     border-color:var(--black)
 }
 
-/* ── CATEGORY BANNER ── */
+/* Banner besar bergambar untuk masuk ke kategori produk */
 .cat-banner {
     position:relative;
     overflow:hidden;
@@ -442,7 +463,7 @@ ul {
 }
 .cat-banner:hover img { transform:scale(1.04) }
 
-.cat-banner-label {
+.cat-banner-label { /* Teks nama kategori yang muncul di atas gambar banner */
     position:absolute;
     bottom:0;
     left:0;
@@ -462,12 +483,12 @@ ul {
 
 /* ── PRODUCT GRID — layout handled by Bootstrap row g-3 ── */
 
-/* ── PRODUCT CARD ── */
+/* Komponen Kartu Produk (Product Card) */
 .pcard {
     cursor:pointer
 }
 
-.pcard-img {
+.pcard-img { /* Kontainer gambar produk agar selalu berbentuk kotak sempurna (1:1) */
     position:relative;
     background:var(--light);
     aspect-ratio:1/1;
@@ -491,7 +512,7 @@ ul {
     transform:scale(1.04)
 }
 
-.pcard-badge {
+.pcard-badge { /* Stiker kecil di pojok gambar (New, Sale, Populer) */
     position:absolute;
     top:8px;
     left:8px;
@@ -502,17 +523,17 @@ ul {
     text-transform:uppercase
 }
 
-.badge-new {
+.badge-new { /* Warna hitam untuk produk baru */
     background:var(--black);
     color:#fff
 }
 
-.badge-sale {
+.badge-sale { /* Warna merah untuk produk diskon */
     background:var(--red);
     color:#fff
 }
 
-.badge-popular {
+.badge-popular { /* Warna oranye untuk produk populer */
     background:#f59e0b;
     color:#fff
 }
@@ -544,7 +565,7 @@ ul {
     text-align:center
 }
 
-.pcard-price s {
+.pcard-price s { /* Gaya harga coret untuk barang yang sedang diskon */
     font-weight:400;
     color:var(--gray);
     margin-right:6px;
@@ -566,7 +587,7 @@ ul {
     color:var(--black)
 }
 
-/* ── SHOP PAGE ── */
+/* Tata letak khusus untuk halaman katalog (shop.php) */
 .shop-wrap {
     max-width:1280px;
     margin:0 auto;
@@ -590,12 +611,12 @@ ul {
     color:var(--gray);
     margin-top:2px
 }
-.filter-tabs {
+.filter-tabs { /* Tab filter di bawah judul shop */
     display:flex;
     gap:8px;
     flex-wrap:wrap
 }
-.filter-tab {
+.filter-tab { /* Tombol filter kategori di halaman shop */
     background:none;
     border:1px solid var(--border);
     padding:7px 16px;
@@ -612,7 +633,7 @@ ul {
     color:#fff;
     border-color:var(--black)
 }
-.sort-select {
+.sort-select { /* Kotak pilihan pengurutan (harga rendah-tinggi) */
     border:1px solid var(--border);
     background:#fff;
     padding:7px 12px;
@@ -622,7 +643,7 @@ ul {
     cursor:pointer
 }
 
-/* ── PRODUCT DETAIL ── */
+/* Tata letak khusus untuk halaman produk tunggal (produk.php) */
 .detail-wrap {
     max-width:1280px;
     margin:0 auto;
@@ -663,7 +684,7 @@ ul {
     margin-bottom:20px;
     flex-wrap:wrap
 }
-.size-btn {
+.size-btn { /* Tombol pilihan ukuran (S, M, L, XL) */
     width:48px;
     height:40px;
     border:1px solid var(--border);
@@ -677,7 +698,7 @@ ul {
     color:#fff;
     border-color:var(--black)
 }
-.qty-row {
+.qty-row { /* Kotak penambah jumlah barang (- 1 +) */
     display:flex;
     border:1px solid var(--border);
     width:fit-content;
@@ -708,12 +729,12 @@ ul {
     letter-spacing:.1em;
     transition:background .2s
 }
-.detail-accordion {
+.detail-accordion { /* Menu lipat untuk deskripsi panjang */
     margin-top:20px;
     border-top:1px solid var(--border)
 }
 .acc-item { border-bottom:1px solid var(--border) }
-.acc-head {
+.acc-head { /* Bagian judul menu lipat yang bisa diklik */
     display:flex;
     justify-content:space-between;
     padding:14px 0;
@@ -721,7 +742,7 @@ ul {
     font-weight:600;
     font-size:13px
 }
-.acc-body {
+.acc-body { /* Bagian isi teks di dalam menu lipat (awalnya disembunyikan) */
     display:none;
     padding-bottom:14px;
     font-size:13px;
@@ -730,8 +751,8 @@ ul {
 }
 .acc-item.open .acc-body { display:block }
 
-/* ── SALE PAGE ── */
-.sale-hero {
+/* Banner merah besar khusus untuk halaman Promo (sale.php) */
+.sale-hero { 
     background:var(--red);
     color:#fff;
     text-align:center;
@@ -749,18 +770,18 @@ ul {
     margin-top:8px
 }
 
-/* ── ABOUT PAGE ── */
+/* Pengaturan lebar teks yang lebih sempit untuk halaman profil (about.php) agar enak dibaca */
 .about-wrap {
     max-width:760px;
     margin:0 auto;
     padding:48px 24px 80px
 }
-.about-wrap h1 {
+.about-wrap h1 { /* Judul tentang kami */
     font-family:var(--logo);
     font-size:42px;
     margin-bottom:24px
 }
-.about-img {
+.about-img { /* Gambar utama di halaman profil */
     width:100%;
     aspect-ratio:16/6;
     object-fit:cover;
@@ -790,7 +811,7 @@ ul {
     text-transform:uppercase
 }
 
-/* ── CART PAGE — cart-layout grid handled by Bootstrap row ── */
+/* Halaman Keranjang Belanja (Jika fitur ini diaktifkan nanti) */
 .cart-wrap {
     max-width:960px;
     margin:0 auto;
@@ -890,7 +911,7 @@ ul {
     color:var(--red)
 }
 
-.cart-summary {
+.cart-summary { /* Kotak ringkasan belanja di sebelah kanan keranjang */
     border:1px solid var(--border);
     padding:24px;
     position:sticky;
@@ -986,7 +1007,7 @@ ul {
     margin-top:0
 }
 
-/* ── FOOTER — grid layout handled by Bootstrap row g-4 ── */
+/* Tata letak konten di dalam footer */
 .footer-inner {
     max-width:1280px;
     margin:0 auto;
@@ -1035,7 +1056,7 @@ ul {
     color:var(--black)
 }
 
-.footer-bottom {
+.footer-bottom { /* Bagian paling bawah footer untuk hak cipta (copyright) */
     max-width:1280px;
     margin:0 auto;
     padding-top:20px;
@@ -1067,7 +1088,7 @@ ul {
     color:var(--gray)
 }
 
-.social-row {
+.social-row { /* Barisan ikon media sosial */
     display:flex;
     gap:12px;
     margin-top:14px
@@ -1093,7 +1114,7 @@ ul {
     border-color:var(--black)
 }
 
-/* ── TOAST ── */
+/* Notifikasi Hitam kecil yang muncul di tengah bawah layar (toast) */
 .toast {
     position:fixed;
     bottom:24px;
@@ -1118,7 +1139,7 @@ ul {
     transform:translateX(-50%) translateY(0)
 }
 
-/* ── BACK TO TOP ── */
+/* Tombol Bulat hitam untuk kembali ke atas halaman */
 .btt {
     position:fixed;
     bottom:24px;
@@ -1144,7 +1165,7 @@ ul {
     pointer-events:auto
 }
 
-/* ── AUTH MODAL ── */
+/* Pengaturan tampilan modal Login & Daftar */
 .auth-overlay {
     position: fixed;
     inset: 0;
@@ -1157,7 +1178,7 @@ ul {
     backdrop-filter: blur(3px);
 }
 .auth-overlay.active { display: flex; }
-.auth-modal {
+.auth-modal { /* Kotak putih modal */
     background: #fff;
     width: 100%;
     max-width: 420px;
@@ -1177,7 +1198,7 @@ ul {
     color: var(--gray);
     line-height: 1;
 }
-.auth-title {
+.auth-title { /* Logo Von Dutch di dalam modal */
     margin-bottom: 24px;
     text-align: center;
 }
@@ -1185,7 +1206,7 @@ ul {
     height: 85px;
     margin: 0 auto;
 }
-.auth-tabs {
+.auth-tabs { /* Tab Login/Register dalam modal */
     display: flex;
     border-bottom: 1px solid var(--border);
     margin-bottom: 28px;
@@ -1206,7 +1227,7 @@ ul {
     color: var(--black);
     border-bottom: 2px solid var(--black);
 }
-.auth-form-group { margin-bottom: 20px; }
+.auth-form-group { margin-bottom: 20px; } /* Jarak antar input form */
 .auth-form-group label {
     display: block;
     font-size: 11px;
@@ -1215,7 +1236,7 @@ ul {
     margin-bottom: 8px;
     letter-spacing: .04em;
 }
-.auth-input {
+.auth-input { /* Gaya kotak input teks (Email/Password) */
     width: 100%;
     border: 1px solid var(--border);
     padding: 12px 14px;
@@ -1225,7 +1246,7 @@ ul {
     border-radius: 2px;
 }
 .auth-input:focus { border-color: var(--black); }
-.btn-auth {
+.btn-auth { /* Tombol hitam utama dalam modal */
     width: 100%;
     padding: 15px;
     background: var(--black);
@@ -1239,7 +1260,7 @@ ul {
     transition: .2s;
 }
 .btn-auth:hover { background: #333; }
-.auth-switch {
+.auth-switch { /* Teks "Belum punya akun?" di bawah form */
     margin-top: 24px;
     text-align: center;
     font-size: 13px;
@@ -1252,13 +1273,15 @@ ul {
     text-decoration: underline;
 }
 
-@media(max-width:768px) {
+/* Penyesuaian Responsif: Untuk Layar Tablet (768px kebawah) */
+@media(max-width:768px) { 
     .hero-slide img { height:700px }
     .hero-text { padding:20px 20px 16px }
     .hero-text h2 { font-size:32px }
     .detail-layout { gap:24px }
 }
 
+/* Penyesuaian Responsif: Untuk Layar HP Kecil (540px kebawah) */
 @media(max-width:540px) {
     .info-grid { grid-template-columns:1fr }
     .info-box {

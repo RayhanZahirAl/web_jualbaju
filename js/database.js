@@ -1,21 +1,19 @@
-/* ══════════════════════════════════════════
-   DATA PRODUK
-══════════════════════════════════════════ */
+/* --- Data Produk Pusat: Semua informasi produk dikelola di sini --- */
 const PRODUCTS = [
-  // ── Trucker Hat ──
+  // Kelompok Kategori: Trucker Hat
   {
-    id: 1,
-    name: "Classic Chopper Trucker Hat",
-    cat: "Trucker Hat",
-    gender: "Unisex",
-    price: 450000,
-    badge: "new",
-    sizes: ["One Size"],
-    imgs: [
-      "img/caps.jpg",
-      "img/workshirt.jpg"
+    id: 1, // ID unik untuk mengidentifikasi produk saat diklik
+    name: "Classic Chopper Trucker Hat", // Nama produk yang tampil di layar
+    cat: "Trucker Hat", // Kategori produk untuk filter
+    gender: "Unisex", // Target pengguna
+    price: 450000, // Harga aktif (dalam angka murni)
+    badge: "new", // Penanda khusus: 'new', 'sale', atau 'popular'
+    sizes: ["One Size"], // Daftar ukuran yang tersedia
+    imgs: [ // Array gambar produk (gambar pertama jadi foto utama)
+      "img/caps.jpg", 
+      "img/workshirt.jpg" 
     ],
-    desc: "Trucker hat klasik Von Dutch dengan logo Chopper ikonik. Bahan mesh breathable dengan panel depan terstruktur. Adjuster snapback di belakang untuk kenyamanan maksimal."
+    desc: "Trucker hat klasik Von Dutch dengan logo Chopper ikonik. Bahan mesh breathable dengan panel depan terstruktur. Adjuster snapback di belakang untuk kenyamanan maksimal." // Penjelasan detail produk
   },
   {
     id: 2,
@@ -36,7 +34,7 @@ const PRODUCTS = [
     cat: "Trucker Hat",
     gender: "Unisex",
     price: 315000,
-    origPrice: 450000,
+    origPrice: 450000, // Jika ada origPrice, maka harga asli akan dicoret (diskon)
     badge: "sale",
     sizes: ["One Size"],
     imgs: [
@@ -58,7 +56,7 @@ const PRODUCTS = [
     desc: "Strapback hat dengan tema MotoCross Von Dutch. Bordir detail di depan dan samping. Panel depan terstruktur."
   },
 
-  // ── Clothing ──
+  // Kelompok Kategori: Clothing
   {
     id: 4,
     name: "Mechanic Shirt Long Sleeve",
@@ -153,7 +151,7 @@ const PRODUCTS = [
     desc: "Kaos baggy oversized dengan grafis kontras Von Dutch. Bahan cotton fleece ringan. Fit oversized untuk tampilan street yang santai."
   },
 
-  // ── Bags ──
+  // Kelompok Kategori: Bags
   {
     id: 9,
     name: "Hanna Bag Forest Green",
@@ -209,7 +207,7 @@ const PRODUCTS = [
     desc: "Crossbody bag dengan emblem Flying Eye Von Dutch. Bahan nylon tahan air. Tali adjustable lintas bahu."
   },
 
-  // ── Women ──
+  // Kelompok Kategori: Women (Untuk kebutuhan filter khusus kategori Wanita)
   {
     id: 15,
     name: "Women Ribbed Long Sleeve",
@@ -224,10 +222,7 @@ const PRODUCTS = [
     desc: "Atasan lengan panjang ribbed untuk wanita. Bahan stretch nyaman dipakai seharian. Detail logo Von Dutch kecil di dada kiri."
   },
 
-  // ── Men ──
-  // (lihat Clothing gender Men di atas)
-
-  // ── Accessories ──
+  // Kelompok Kategori: Accessories
   {
     id: 17,
     name: "Flying Eye Keychain",

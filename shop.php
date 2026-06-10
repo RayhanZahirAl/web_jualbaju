@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Standar dokumen HTML5 -->
 <html lang="en">
 
 <head>
@@ -13,19 +13,19 @@
 
 <body>
     <?php
-    include_once 'header.php'
+    include_once 'header.php' // Sertakan navigasi atas
     ?>
-    <!-- ═══════════════════════════════════════════
-     PAGE: SHOP
-═══════════════════════════════════════════ -->
+    <!-- Halaman Katalog Produk (Shop) -->
     <div class="page active" id="page-shop">
-        <div class="shop-wrap">
+        <div class="shop-wrap"> <!-- Pembungkus konten katalog -->
+            <!-- Breadcrumb: Navigasi petunjuk lokasi halaman saat ini -->
             <div class="breadcrumb">
                 <span onclick="nav('home')">Home</span>
                 <span class="sep">/</span>
                 <span class="current" id="shopBreadcrumb">Semua Produk</span>
             </div>
 
+            <!-- Topbar Shop: Judul kategori dan jumlah produk yang ditemukan -->
             <div class="shop-topbar">
                 <div>
                     <div class="shop-title" id="shopPageTitle">Semua Produk</div>
@@ -33,6 +33,7 @@
                 </div>
             </div>
 
+            <!-- Filter Tabs: Tombol untuk menyaring produk berdasarkan kategori -->
             <div class="filter-tabs" id="filterTabs" style="margin-bottom:24px">
                 <button class="filter-tab active" onclick="setFilter('Semua')">Semua</button>
                 <button class="filter-tab" onclick="setFilter('Trucker Hat')">Trucker Hat</button>
@@ -43,12 +44,13 @@
                 <button class="filter-tab" onclick="setFilter('Men')">Men</button>
             </div>
 
+            <!-- Kontainer Grid Produk: Di sini kartu-kartu produk akan dimunculkan oleh JS -->
             <div class="product-grid row g-3" id="shopGrid"></div>
         </div>
     </div>
 
-    <script src="js/database.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/database.js"></script> <!-- Ambil data produk -->
+    <script src="js/script.js"></script> <!-- Jalankan fungsi renderShop() -->
     <?php
     include_once 'footer.php';
     ?>
